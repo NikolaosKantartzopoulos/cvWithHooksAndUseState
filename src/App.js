@@ -6,7 +6,6 @@ import PracticalExperience from "./components/PracticalExperience";
 function App() {
 	return (
 		<div className="App">
-			This is a test
 			<GeneralInformation />
 			<EducationalExperience />
 			<PracticalExperience />

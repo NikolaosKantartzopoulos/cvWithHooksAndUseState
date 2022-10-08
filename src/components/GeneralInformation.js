@@ -18,12 +18,15 @@ class GeneralInformation extends Component {
 
 	changeName(event) {
 		console.log("changeName called");
+		this.setState({ name: event.target.value });
 	}
 	changeEmail(event) {
 		console.log("changeEmail called");
+		this.setState({ email: event.target.value });
 	}
 	changePhoneNumber(event) {
 		console.log("changePhoneNumber called");
+		this.setState({ phoneNumber: event.target.value });
 	}
 
 	render() {
@@ -42,14 +45,14 @@ class GeneralInformation extends Component {
 					<input
 						id="changeEmailID"
 						type="text"
-						value={this.state.changeEmail}
+						value={this.state.email}
 						onChange={this.changeEmail}
 					/>
 					<label htmlFor="changePhoneNumberID">Phone Number</label>
 					<input
 						id="changePhoneNumberID"
 						type="text"
-						value={this.state.changePhoneNumber}
+						value={this.state.phoneNumber}
 						onChange={this.changePhoneNumber}
 					/>
 				</div>

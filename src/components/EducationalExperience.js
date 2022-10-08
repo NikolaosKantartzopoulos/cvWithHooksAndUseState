@@ -18,12 +18,15 @@ class EducationalExperience extends Component {
 
 	changeSchoolName(event) {
 		console.log("changeSchoolName called");
+		this.setState({ schoolName: event.target.value });
 	}
 	changeTitleOfStudy(event) {
 		console.log("changeTitleOfStudy called");
+		this.setState({ titleOfStudy: event.target.value });
 	}
 	changeDateOfStudy(event) {
 		console.log("changeDateOfStudy called");
+		this.setState({ dateOfStudy: event.target.value });
 	}
 
 	render() {
@@ -35,21 +38,21 @@ class EducationalExperience extends Component {
 					<input
 						id="schoolNameID"
 						type="text"
-						value={this.state.companyName}
+						value={this.state.schoolName}
 						onChange={this.changeSchoolName}
 					/>
 					<label htmlFor="changeTitleOfStudyID">Title of Study</label>
 					<input
 						id="changeTitleOfStudyID"
 						type="text"
-						value={this.state.changeTitleOfStudy}
+						value={this.state.titleOfStudy}
 						onChange={this.changeTitleOfStudy}
 					/>
 					<label htmlFor="changeDateOfStudyID">Date of Study</label>
 					<input
 						id="changeDateOfStudyID"
 						type="text"
-						value={this.state.changeDateOfStudy}
+						value={this.state.dateOfStudy}
 						onChange={this.changeDateOfStudy}
 					/>
 				</div>

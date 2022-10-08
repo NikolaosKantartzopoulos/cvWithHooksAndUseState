@@ -21,15 +21,19 @@ class PracticalExperience extends Component {
 
 	changeCompanyName(event) {
 		console.log("changeCompanyName called");
+		this.setState({ companyName: event.target.value });
 	}
 	changePositionTitle(event) {
 		console.log("changePositionTitle called");
+		this.setState({ positionTitle: event.target.value });
 	}
 	changeMainTasks(event) {
 		console.log("changeMainTasks called");
+		this.setState({ mainTasks: event.target.value });
 	}
 	changeDateRange(event) {
 		console.log("changeDateRange called");
+		this.setState({ dateRange: event.target.value });
 	}
 
 	render() {
