@@ -1,4 +1,4 @@
-#practicalExperience {
+.practicalExperience {
   display: grid;
   grid-template-columns: repeat(2, 2fr);
   width: clamp(300px, 90vw, 500px);

@@ -1,7 +1,9 @@
 .title {
-  text-align: center;
   display: flex;
+  gap: 20px;
   flex-flow: row;
+  color: whitesmoke;
+  text-align: center;
   justify-content: center;
   align-items: center;
   width: clamp(300px, 90vw, 500px);

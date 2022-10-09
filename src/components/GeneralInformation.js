@@ -10,10 +10,13 @@ class GeneralInformation extends Component {
 			name: "",
 			email: "",
 			phoneNumber: "",
+			editCategory: false,
 		};
 		this.changeName = this.changeName.bind(this);
 		this.changeEmail = this.changeEmail.bind(this);
 		this.changePhoneNumber = this.changePhoneNumber.bind(this);
+		this.submitGeneralInformation = this.submitGeneralInformation.bind(this);
+		this.editGeneralInformation = this.editGeneralInformation.bind(this);
 	}
 
 	changeName(event) {
@@ -28,36 +31,69 @@ class GeneralInformation extends Component {
 		console.log("changePhoneNumber called");
 		this.setState({ phoneNumber: event.target.value });
 	}
+	submitGeneralInformation() {
+		console.log("submitGeneralInformation called");
+		this.setState({ editCategory: false });
+	}
+	editGeneralInformation() {
+		console.log("editGeneralInformation called");
+		this.setState({ editCategory: true });
+	}
 
 	render() {
-		return (
-			<React.Fragment>
-				<CategoryTitle title="General Information" />
-				<div className="infoBlock">
-					<label htmlFor="schoolNameID">Practical Experience</label>
-					<input
-						id="schoolNameID"
-						type="text"
-						value={this.state.companyName}
-						onChange={this.changeName}
+		if (this.state.editCategory) {
+			return (
+				<React.Fragment>
+					<CategoryTitle
+						title="General Information"
+						editCategory={this.editGeneralInformation}
 					/>
-					<label htmlFor="changeEmailID">E-mail</label>
-					<input
-						id="changeEmailID"
-						type="text"
-						value={this.state.email}
-						onChange={this.changeEmail}
+					<form className="infoBlock" onSubmit={this.submitGeneralInformation}>
+						<label htmlFor="nameID">Name</label>
+						<input
+							id="nameID"
+							type="text"
+							value={this.state.name}
+							onChange={this.changeName}
+						/>
+						<label htmlFor="changeEmailID">E-mail</label>
+						<input
+							id="changeEmailID"
+							type="text"
+							value={this.state.email}
+							onChange={this.changeEmail}
+						/>
+						<label htmlFor="changePhoneNumberID">Phone Number</label>
+						<input
+							id="changePhoneNumberID"
+							type="text"
+							value={this.state.phoneNumber}
+							onChange={this.changePhoneNumber}
+						/>
+						<button type="submit">Submit</button>
+					</form>
+				</React.Fragment>
+			);
+		} else {
+			return (
+				<React.Fragment>
+					<CategoryTitle
+						title="General Information"
+						editCategory={this.editGeneralInformation}
 					/>
-					<label htmlFor="changePhoneNumberID">Phone Number</label>
-					<input
-						id="changePhoneNumberID"
-						type="text"
-						value={this.state.phoneNumber}
-						onChange={this.changePhoneNumber}
-					/>
-				</div>
-			</React.Fragment>
-		);
+					<div className="infoBlock">
+						<div>Name</div>
+						<div onClick={this.editGeneralInformation}>{this.state.name}</div>
+						<div>E-mail</div>
+						<div onClick={this.editGeneralInformation}>{this.state.email}</div>
+						<div>Phone Number</div>
+						<div onClick={this.editGeneralInformation}>
+							{this.state.phoneNumber}
+						</div>
+					</div>
+				</React.Fragment>
+			);
+		}
 	}
 }
 

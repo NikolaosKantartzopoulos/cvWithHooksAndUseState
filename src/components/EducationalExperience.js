@@ -10,10 +10,14 @@ class EducationalExperience extends Component {
 			schoolName: "",
 			titleOfStudy: "",
 			dateOfStudy: "",
+			editCategory: false,
 		};
 		this.changeSchoolName = this.changeSchoolName.bind(this);
 		this.changeTitleOfStudy = this.changeTitleOfStudy.bind(this);
 		this.changeDateOfStudy = this.changeDateOfStudy.bind(this);
+		this.submitEducationalExperience =
+			this.submitEducationalExperience.bind(this);
+		this.editEducationalExperience = this.editEducationalExperience.bind(this);
 	}
 
 	changeSchoolName(event) {
@@ -28,36 +32,78 @@ class EducationalExperience extends Component {
 		console.log("changeDateOfStudy called");
 		this.setState({ dateOfStudy: event.target.value });
 	}
+	submitEducationalExperience() {
+		console.log("submitEducationalExperience called");
+		this.setState({ editCategory: false });
+	}
+	editEducationalExperience() {
+		console.log("editEducationalExperience called");
+		this.setState({ editCategory: true });
+	}
 
 	render() {
-		return (
-			<React.Fragment>
-				<CategoryTitle title="Educational Experience" />
-				<div className="infoBlock">
-					<label htmlFor="schoolNameID">School Name</label>
-					<input
-						id="schoolNameID"
-						type="text"
-						value={this.state.schoolName}
-						onChange={this.changeSchoolName}
+		if (this.state.editCategory) {
+			return (
+				<React.Fragment>
+					<CategoryTitle
+						title="Educational Experience"
+						editCategory={this.editEducationalExperience}
 					/>
-					<label htmlFor="changeTitleOfStudyID">Title of Study</label>
-					<input
-						id="changeTitleOfStudyID"
-						type="text"
-						value={this.state.titleOfStudy}
-						onChange={this.changeTitleOfStudy}
+					<form
+						className="infoBlock"
+						onSubmit={this.submitEducationalExperience}
+					>
+						<label htmlFor="schoolNameID">School Name</label>
+						<input
+							id="schoolNameID"
+							type="text"
+							value={this.state.schoolName}
+							onChange={this.changeSchoolName}
+						/>
+						<label htmlFor="changeTitleOfStudyID">Title of Study</label>
+						<input
+							id="changeTitleOfStudyID"
+							type="text"
+							value={this.state.titleOfStudy}
+							onChange={this.changeTitleOfStudy}
+						/>
+						<label htmlFor="changeDateOfStudyID">Date of Study</label>
+						<input
+							id="changeDateOfStudyID"
+							type="text"
+							value={this.state.dateOfStudy}
+							onChange={this.changeDateOfStudy}
+						/>
+						<button type="submit">Submit</button>
+					</form>
+				</React.Fragment>
+			);
+		} else {
+			return (
+				<React.Fragment>
+					<CategoryTitle
+						title="Educational Experience"
+						editCategory={this.editEducationalExperience}
 					/>
-					<label htmlFor="changeDateOfStudyID">Date of Study</label>
-					<input
-						id="changeDateOfStudyID"
-						type="text"
-						value={this.state.dateOfStudy}
-						onChange={this.changeDateOfStudy}
-					/>
-				</div>
-			</React.Fragment>
-		);
+					<div className="infoBlock">
+						<div>School Name</div>
+						<div onClick={this.editEducationalExperience}>
+							{this.state.schoolName}
+						</div>
+
+						<div>Title of Study</div>
+						<div onClick={this.editEducationalExperience}>
+							{this.state.titleOfStudy}
+						</div>
+
+						<div>Date of Study</div>
+						<div onClick={this.editEducationalExperience}>
+							{this.state.dateOfStudy}
+						</div>
+					</div>
+				</React.Fragment>
+			);
+		}
 	}
 }
 
