@@ -10,4 +10,4 @@ https://www.theodinproject.com/lessons/node-path-javascript-hooks
 
 ### See it live!
 
-https://github.com/NikolaosKantartzopoulos/cvWithHooksAndUseState/settings/pages
+https://nikolaoskantartzopoulos.github.io/cvWithHooksAndUseState/
