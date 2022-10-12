@@ -1,123 +1,102 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import CategoryTitle from "./CategoryTitle";
 import "../styles/styles.css";
 import "../styles/practicalExperience.css";
 
-class PracticalExperience extends Component {
-	constructor(props) {
-		super(props);
+function PracticalExperience(props) {
+	const [companyName, setCompanyName] = useState("");
+	const [positionTitle, setPositionTitle] = useState("");
+	const [mainTasks, setMainTasks] = useState("");
+	const [dateRange, setDateRange] = useState(false);
+	const [editCategory, setEditCategory] = useState(false);
 
-		this.state = {
-			companyName: "",
-			positionTitle: "",
-			mainTasks: "",
-			dateRange: "",
-		};
-		this.changeCompanyName = this.changeCompanyName.bind(this);
-		this.changePositionTitle = this.changePositionTitle.bind(this);
-		this.changeMainTasks = this.changeMainTasks.bind(this);
-		this.changeDateRange = this.changeDateRange.bind(this);
-		this.submitPracticalExperience = this.submitPracticalExperience.bind(this);
-		this.editPracticalExperience = this.editPracticalExperience.bind(this);
-	}
-
-	changeCompanyName(event) {
+	const changeCompanyName = (event) => {
 		console.log("changeCompanyName called");
-		this.setState({ companyName: event.target.value });
-	}
-	changePositionTitle(event) {
+		setCompanyName(event.target.value);
+	};
+	const changePositionTitle = (event) => {
 		console.log("changePositionTitle called");
-		this.setState({ positionTitle: event.target.value });
-	}
-	changeMainTasks(event) {
+		setPositionTitle(event.target.value);
+	};
+	const changeMainTasks = (event) => {
 		console.log("changeMainTasks called");
-		this.setState({ mainTasks: event.target.value });
-	}
-	changeDateRange(event) {
+		setMainTasks(event.target.value);
+	};
+	const changeDateRange = (event) => {
 		console.log("changeDateRange called");
-		this.setState({ dateRange: event.target.value });
-	}
-	submitPracticalExperience() {
+		setDateRange(event.target.value);
+	};
+	const submitPracticalExperience = (e) => {
 		console.log("submitPracticalExperience called");
-		this.setState({ editCategory: false });
-	}
-	editPracticalExperience() {
+		setEditCategory(false);
+	};
+	const editPracticalExperience = (e) => {
 		console.log("editPracticalExperience called");
-		this.setState({ editCategory: true });
-	}
+		setEditCategory(true);
+	};
 
-	render() {
-		if (this.state.editCategory) {
-			return (
-				<React.Fragment>
-					<CategoryTitle
-						title="Practical Experience"
-						editCategory={this.editPracticalExperience}
+	if (editCategory) {
+		return (
+			<React.Fragment>
+				<CategoryTitle
+					title="Practical Experience"
+					editCategory={editPracticalExperience}
+				/>
+				<form className="infoBlock" onSubmit={submitPracticalExperience}>
+					<label htmlFor="comNameID">Company Name</label>
+					<input
+						id="comNameID"
+						type="text"
+						value={companyName}
+						onChange={changeCompanyName}
 					/>
-					<form className="infoBlock" onSubmit={this.submitPracticalExperience}>
-						<label htmlFor="comNameID">Company Name</label>
-						<input
-							id="comNameID"
-							type="text"
-							value={this.state.companyName}
-							onChange={this.changeCompanyName}
-						/>
-						<label htmlFor="posTitleID">Postition Title</label>
-						<input
-							id="posTitleID"
-							type="text"
-							value={this.state.positionTitle}
-							onChange={this.changePositionTitle}
-						/>
-						<label htmlFor="mainTasksID">Main Tasks</label>
-						<input
-							id="mainTasksID"
-							type="text"
-							value={this.state.mainTasks}
-							onChange={this.changeMainTasks}
-						/>
-						<label htmlFor="dateRangeID">Date Range</label>
-						<input
-							id="dateRangeID"
-							type="text"
-							value={this.state.dateRange}
-							onChange={this.changeDateRange}
-						/>
-						<button type="submit">Submit</button>
-					</form>
-				</React.Fragment>
-			);
-		} else {
-			return (
-				<React.Fragment>
-					<CategoryTitle
-						title="Practical Experience"
-						editCategory={this.editPracticalExperience}
+					<label htmlFor="posTitleID">Postition Title</label>
+					<input
+						id="posTitleID"
+						type="text"
+						value={positionTitle}
+						onChange={changePositionTitle}
 					/>
+					<label htmlFor="mainTasksID">Main Tasks</label>
+					<input
+						id="mainTasksID"
+						type="text"
+						value={mainTasks}
+						onChange={changeMainTasks}
+					/>
+					<label htmlFor="dateRangeID">Date Range</label>
+					<input
+						id="dateRangeID"
+						type="text"
+						value={dateRange}
+						onChange={changeDateRange}
+					/>
+					<button type="submit">Submit</button>
+				</form>
+			</React.Fragment>
+		);
+	} else {
+		return (
+			<React.Fragment>
+				<CategoryTitle
+					title="Practical Experience"
+					editCategory={editPracticalExperience}
+				/>
 
-					<div className="infoBlock">
-						<div>Company Name</div>
-						<div onClick={this.editPracticalExperience}>
-							{this.state.companyName}
-						</div>
-						<div>Postition Tasks</div>
-						<div onClick={this.editPracticalExperience}>
-							{this.state.positionTitle}
-						</div>
+				<div className="infoBlock">
+					<div>Company Name</div>
+					<div onClick={editPracticalExperience}>{companyName}</div>
+					<div>Postition Tasks</div>
+					<div onClick={editPracticalExperience}>{positionTitle}</div>
 
-						<div>Main Tasks</div>
-						<div onClick={this.editPracticalExperience}>
-							{this.state.mainTasks}
-						</div>
+					<div>Main Tasks</div>
+					<div onClick={editPracticalExperience}>{mainTasks}</div>
 
-						<div>Date Range</div>
-						<div onClick={this.editPracticalExperience}>
-							{this.state.dateRange}
-						</div>
-					</div>
-				</React.Fragment>
-			);
-		}
+					<div>Date Range</div>
+					<div onClick={editPracticalExperience}>{dateRange}</div>
+				</div>
+			</React.Fragment>
+		);
 	}
 }
 export default PracticalExperience;
