@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/cvWithHooksAndUseState/static/css/main.ad84fd73.css",
+    "main.js": "/cvWithHooksAndUseState/static/js/main.f80f300f.js",
+    "index.html": "/cvWithHooksAndUseState/index.html",
+    "main.ad84fd73.css.map": "/cvWithHooksAndUseState/static/css/main.ad84fd73.css.map",
+    "main.f80f300f.js.map": "/cvWithHooksAndUseState/static/js/main.f80f300f.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ad84fd73.css",
+    "static/js/main.f80f300f.js"
+  ]
+}
