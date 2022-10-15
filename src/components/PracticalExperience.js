@@ -7,7 +7,7 @@ function PracticalExperience(props) {
 	const [companyName, setCompanyName] = useState("");
 	const [positionTitle, setPositionTitle] = useState("");
 	const [mainTasks, setMainTasks] = useState("");
-	const [dateRange, setDateRange] = useState(false);
+	const [dateRange, setDateRange] = useState("");
 	const [editCategory, setEditCategory] = useState(false);
 
 	const changeCompanyName = (event) => {
@@ -71,7 +71,9 @@ function PracticalExperience(props) {
 						value={dateRange}
 						onChange={changeDateRange}
 					/>
-					<button type="submit">Submit</button>
+					<button type="submit" className="myButton">
+						Submit
+					</button>
 				</form>
 			</React.Fragment>
 		);

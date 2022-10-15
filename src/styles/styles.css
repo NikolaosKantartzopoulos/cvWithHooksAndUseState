@@ -30,3 +30,18 @@
   margin: 20px;
   font-size: 3rem;
 }
+
+.myButton {
+  background-color: white;
+  border: none;
+  color: #036464;
+  padding: 0.5rem;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1rem;
+  grid-column-start: 1;
+  grid-column-end: 3;
+  width: 50%;
+  margin: auto;
+}

@@ -53,7 +53,9 @@ function GeneralInformation(props) {
 						value={phoneNumber}
 						onChange={changePhoneNumber}
 					/>
-					<button type="submit">Submit</button>
+					<button type="submit" className="myButton">
+						Submit
+					</button>
 				</form>
 			</React.Fragment>
 		);

@@ -8,13 +8,6 @@ function EducationalExperience(props) {
 	const [dateOfStudy, setDateOfStudy] = useState("");
 	const [editCategory, setEditCategory] = useState(false);
 
-	// changeSchoolName = changeSchoolName.bind(;
-	// changeTitleOfStudy = changeTitleOfStudy.bind(;
-	// changeDateOfStudy = changeDateOfStudy.bind(;
-	// submitEducationalExperience =
-	// 	submitEducationalExperience.bind(;
-	// editEducationalExperience = editEducationalExperience.bind(;
-
 	const changeSchoolName = (event) => {
 		console.log("changeSchoolName called");
 		setSchoolName(event.target.value);
@@ -65,7 +58,9 @@ function EducationalExperience(props) {
 						value={dateOfStudy}
 						onChange={changeDateOfStudy}
 					/>
-					<button type="submit">Submit</button>
+					<button type="submit" className="myButton">
+						Submit
+					</button>
 				</form>
 			</React.Fragment>
 		);
